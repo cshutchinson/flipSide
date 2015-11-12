@@ -1,0 +1,64 @@
+
+
+.main {
+  background:rgba(0,0,240, .5);
+  height: 700px;
+  width: 700px;
+  padding: 10px;
+  border-color: black;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.container{
+  display: inline-block;
+  width:10%;
+  height:10%;
+  position: relative;
+  margin: 1%;
+}
+
+.card{
+  text-align:center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.face.front {
+  background:yellow;
+}
+
+.face.back {
+  display: block;
+  box-sizing: border-box;
+  padding: 0px;
+  color: white;
+  text-align: center;
+  background-color: #111;
+  outline: 2px solid black;
+}
+
+.container{
+  perspective: 800px;
+}
+.card{
+  transform-style: preserve-3d;
+  transition: all .25s linear;
+}
+.flip {
+  transform: rotateY(180deg);
+}
+.face {
+  backface-visibility: hidden;
+}
+
+.face.back {
+  transform: rotateY(180deg);
+}

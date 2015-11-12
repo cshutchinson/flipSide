@@ -1,30 +1,51 @@
-var xmlHTTP = new XMLHttpRequest();
-xmlHTTP.open('GET','http://lorempixel.com/400/200/sports/',true);
+'use strict';
 
-// Must include this line - specifies the response type we want
-xmlHTTP.responseType = 'arraybuffer';
+// console.log($('.main').length);
 
-xmlHTTP.onload = function(e)
-{
+function createCard(selector){
+  $(selector).append('<div class="container"><div class="card"><div\
+   class="face front">Front</div><div class="face back"></div></div></div>');
+}
+
+function insertCards(count){
+  var i=0;
+  for (i=0; i<count; i=i+1){
+    createCard($('.main'));
+  }
+}
+
+function retrieveImage(){
+  var xmlHTTP = new XMLHttpRequest();
+  xmlHTTP.open('GET', 'http://lorempixel.com/400/200/sports/', true);
+  xmlHTTP.responseType = 'arraybuffer';
+  xmlHTTP.onload = function() {
     var arr = new Uint8Array(this.response);
+    var raw = String.fromCharCode.apply(null, arr);
+    var b64 = btoa(raw);
+    // var dataURL='data:image/jpeg;base64,'+b64;
+    // $('<img>').attr('src', dataURL).appendTo(document.body)
+    return 'data:image/jpeg;base64,' + b64;
+  };
+  xmlHTTP.send();
+}
 
-    // Convert the int array to a binary string
-    // We have to use apply() as we are converting an *array*
-    // and String.fromCharCode() takes one or more single values, not
-    // an array.
-    var raw = String.fromCharCode.apply(null,arr);
-
-    // This works!!!
-    var b64=btoa(raw);
-    var dataURL="data:image/jpeg;base64,"+b64;
-    $('<img>').attr('src', dataURL).appendTo(document.body)
-};
-
-xmlHTTP.send();
-
-
-//refer to http://stackoverflow.com/questions/20035615/using-raw-image-data-from-ajax-request-for-data-uri for
-// more info on the technique
+function addImageToCard(){
+  $('.back').each(function(){
+    // $(this).html($('<img>').attr('src', retrieveImage()));
+    $('<img>').attr('src', retrieveImage()).appendTo(this);
+  });
+}
 
 
-// http://api.jquery.com/jquery.ajaxtransport/
+ insertCards(64);
+
+ $('.card').click(function(){
+   $(this).toggleClass('flip');
+ });
+
+addImageToCard();
+
+
+
+// <img \
+// src="http://www.lorempixel.com/70/70">
