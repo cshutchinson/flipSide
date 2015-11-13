@@ -45,7 +45,6 @@ function handleImage(text){
   var raw = String.fromCharCode.apply(null, arr);
   var b64 = btoa(raw);
   var dataURL='data:image/jpeg;base64,'+b64;
-  console.log(dataURL);
   cardImages.push(dataURL);
 }
 
@@ -63,6 +62,8 @@ $('.card').click(function(){
   $(this).toggleClass('flip');
 });
 
-// insertCards(2);
+while(cardImages.length<2){
+ console.log(cardImages.length);
+};
 console.log(cardImages);
 // addImageToCards();
