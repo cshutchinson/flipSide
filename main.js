@@ -2,6 +2,9 @@
 
 // console.log($('.main').length);
 
+var cardImages = [];
+var requested = 0;
+
 function createCard(selector){
   $(selector).append('<div class="container"><div class="card"><div\
    class="face front">Front</div><div class="face back"></div></div></div>');
@@ -16,36 +19,33 @@ function insertCards(count){
 
 function retrieveImage(){
   var xmlHTTP = new XMLHttpRequest();
-  xmlHTTP.open('GET', 'http://lorempixel.com/400/200/sports/', true);
+  xmlHTTP.open('GET', 'http://lorempixel.com/70/70/sports/', true);
   xmlHTTP.responseType = 'arraybuffer';
   xmlHTTP.onload = function() {
     var arr = new Uint8Array(this.response);
     var raw = String.fromCharCode.apply(null, arr);
     var b64 = btoa(raw);
-    // var dataURL='data:image/jpeg;base64,'+b64;
+    var dataURL='data:image/jpeg;base64,'+b64;
     // $('<img>').attr('src', dataURL).appendTo(document.body)
-    return 'data:image/jpeg;base64,' + b64;
+    cardImages.push(dataURL);
+    return 'true';
   };
   xmlHTTP.send();
 }
 
-function addImageToCard(){
-  $('.back').each(function(){
-    // $(this).html($('<img>').attr('src', retrieveImage()));
-    $('<img>').attr('src', retrieveImage()).appendTo(this);
+function addImageToCards(){
+  $('.back').each(function(index){
+    $('<img>').attr('src', cardImages[index]).appendTo(this);
   });
 }
 
-
- insertCards(64);
-
- $('.card').click(function(){
-   $(this).toggleClass('flip');
- });
-
-addImageToCard();
+setInterval(retrieveImage, 1000);
 
 
 
-// <img \
-// src="http://www.lorempixel.com/70/70">
+  //
+  // insertCards(2);
+  // addImageToCards();
+  // $('.card').click(function(){
+  //   $(this).toggleClass('flip');
+  // });
