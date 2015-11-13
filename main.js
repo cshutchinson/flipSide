@@ -10,8 +10,7 @@ function createCard(selector){
 }
 
 function insertCards(count){
-  var i=0;
-  for (i=0; i<count; i=i+1){
+  for (var i=0; i<count; i=i+1){
     createCard($('.main'));
   }
   return ($('.main'));
@@ -26,7 +25,7 @@ function retrieveImage(){
   return new Promise(function(succeed, fail){
     var req = new XMLHttpRequest();
     req.responseType = 'arraybuffer';
-    req.open('GET', 'http://lorempixel.com/70/70/sports/', true);
+    req.open('GET', 'http://lorempixel.com/70/70/', true);
     req.onload = function(){
       if (req.status < 400)
         succeed(req.response);
@@ -46,24 +45,33 @@ function handleImage(text){
   var b64 = btoa(raw);
   var dataURL='data:image/jpeg;base64,'+b64;
   cardImages.push(dataURL);
+  return dataURL;
 }
 
 function handleError(error){
   console.log('Failed to fetch image: ' + error);
 }
+var promises = []
 
 for (var i=0; i<6; i++){
-  retrieveImage().then(handleImage, handleError);
+  promises.push(retrieveImage());
+
 }
+Promise.all(promises).then(function(imageArrays){
+  console.log(imageArrays);
+  imageArrays.map(function(elem){
+    addImageToCard(handleImage(elem));
+  })
+});
 
 
+
+console.log
 
 $('.card').click(function(){
   $(this).toggleClass('flip');
 });
 
-while(cardImages.length<2){
- console.log(cardImages.length);
-};
+
 console.log(cardImages);
 // addImageToCards();
