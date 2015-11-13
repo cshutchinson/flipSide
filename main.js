@@ -14,10 +14,10 @@ function insertCards(count){
   for (i=0; i<count; i=i+1){
     createCard($('.main'));
   }
+  return ($('.main'));
 }
 
 function addImageToCard(data){
-  console.log($('.back:last').length);
   $('.back:last').append($('<img>').attr('src', data));
 }
 
@@ -40,30 +40,29 @@ function retrieveImage(){
   });
 }
 
-function imageReady(text){
-  
+function handleImage(text){
+  var arr = new Uint8Array(text);
+  var raw = String.fromCharCode.apply(null, arr);
+  var b64 = btoa(raw);
+  var dataURL='data:image/jpeg;base64,'+b64;
+  console.log(dataURL);
+  cardImages.push(dataURL);
+}
+
+function handleError(error){
+  console.log('Failed to fetch image: ' + error);
+}
+
+for (var i=0; i<6; i++){
+  retrieveImage().then(handleImage, handleError);
 }
 
 
-  retrieveImage().then(function(text){
-    var arr = new Uint8Array(text);
-    var raw = String.fromCharCode.apply(null, arr);
-    var b64 = btoa(raw);
-    var dataURL='data:image/jpeg;base64,'+b64;
-    // $('<img>').attr('src', dataURL).appendTo(document.body)
-    insertCards(1);
-    addImageToCard(dataURL);
-    $('.card').click(function(){
-      $(this).toggleClass('flip');
-    });
-  }, function(error){
-    console.log('Failed to fetch image: ' + error);
-  });
 
-
-
-
+$('.card').click(function(){
+  $(this).toggleClass('flip');
+});
 
 // insertCards(2);
-// console.log(cardImages);
+console.log(cardImages);
 // addImageToCards();
