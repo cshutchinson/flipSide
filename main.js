@@ -2,6 +2,7 @@
 
 var cardImages = [];
 var promises = [];
+var numCards = 4;
 
 
 function createCard(selector){
@@ -48,14 +49,23 @@ function handleImage(text){
   return dataURL;
 }
 
-// function handleError(error){
-//   console.log('Failed to fetch image: ' + error);
-// }
-
-for (var i=0; i<6; i++){
-  promises.push(retrieveImage());
-
+// usage addClickEventListener('.card', 'flip')
+function addClickEventListener(target, cssClass) {
+    $(target).click(function(){
+      $(this).toggleClass(cssClass);
+    });
 }
+
+function elmiminateDuplicateArrayElements(array){
+  array.filter(function(elem, pos, self){
+    return self.indexOf(elem) === pos;
+  });
+}
+
+for (var i=0; i(numCards/2); i++){
+  promises.push(retrieveImage());
+}
+
 Promise.all(promises).then(function(imageArrays){
   imageArrays.map(function(elem){
     cardImages.push(handleImage(elem));
@@ -63,7 +73,14 @@ Promise.all(promises).then(function(imageArrays){
   console.log(cardImages);
 });
 
-
-$('.card').click(function(){
-  $(this).toggleClass('flip');
-});
+// TODO: get n/2 unique images
+// TODO: concat the array with copy of itself
+// TODO: shuffle the array for randomness
+// TODO: create cards with image on flip slide
+// TODO: add click events to each card
+// TODO: show all images to begin the game
+// TODO: hide all images to start the game
+// TODO: when two images are revealed check to see if they are equal
+// TODO: hide pair of images if they don't match
+// TODO: increment score as needed
+// TODO: end game when all images are revealed
