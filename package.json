@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/cshutchinson/flipSide#readme",
   "devDependencies": {
-    "chai": "^3.4.1"
+    "chai": "^3.4.1",
+    "webpack": "^1.12.6"
   },
   "dependencies": {
     "requirejs": "^2.1.20"

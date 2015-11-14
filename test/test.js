@@ -1,4 +1,5 @@
-var code = require('../main');
+var code = require('../main.js');
+
 var expect = require('chai').expect;
 
 
