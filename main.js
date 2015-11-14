@@ -1,8 +1,8 @@
 'use strict';
 
-// console.log($('.main').length);
-
 var cardImages = [];
+var promises = [];
+
 
 function createCard(selector){
   $(selector).append('<div class="container"><div class="card"><div\
@@ -13,7 +13,7 @@ function insertCards(count){
   for (var i=0; i<count; i=i+1){
     createCard($('.main'));
   }
-  return ($('.main'));
+  return $('.main');
 }
 
 function addImageToCard(data){
@@ -27,10 +27,11 @@ function retrieveImage(){
     req.responseType = 'arraybuffer';
     req.open('GET', 'http://lorempixel.com/70/70/', true);
     req.onload = function(){
-      if (req.status < 400)
+      if (req.status < 400) {
         succeed(req.response);
-      else
+      } else {
         fail(new Error('Request failed: ' + req.statusText));
+      }
     };
     req.addEventListener('error', function(){
       fail(new Error('Network error'));
@@ -44,34 +45,25 @@ function handleImage(text){
   var raw = String.fromCharCode.apply(null, arr);
   var b64 = btoa(raw);
   var dataURL='data:image/jpeg;base64,'+b64;
-  cardImages.push(dataURL);
   return dataURL;
 }
 
-function handleError(error){
-  console.log('Failed to fetch image: ' + error);
-}
-var promises = []
+// function handleError(error){
+//   console.log('Failed to fetch image: ' + error);
+// }
 
 for (var i=0; i<6; i++){
   promises.push(retrieveImage());
 
 }
 Promise.all(promises).then(function(imageArrays){
-  console.log(imageArrays);
   imageArrays.map(function(elem){
-    addImageToCard(handleImage(elem));
-  })
+    cardImages.push(handleImage(elem));
+  });
+  console.log(cardImages);
 });
 
-
-
-console.log
 
 $('.card').click(function(){
   $(this).toggleClass('flip');
 });
-
-
-console.log(cardImages);
-// addImageToCards();
