@@ -64,7 +64,7 @@ module.exports = {
     return array;
   },
 
-  showAllCardsThenHide: function(target, cssClass, delay){
+  showAllCardsThenHide: function(target, cssClass, delay, numCards){
     $(target).each(function(i) {
       var $card = $(this);
       setTimeout(function() {
@@ -74,6 +74,16 @@ module.exports = {
         });
       }, delay*i);
     });
+    // now hide them in reverse order
+    setTimeout(function() {
+      $($(target).get().reverse()).each(function(i) {
+        var $card = $(this);
+        setTimeout(function() {
+          $card.toggleClass(cssClass);
+        }, delay*i);
+      });
+    }, delay*numCards)
+
   }
 
 };

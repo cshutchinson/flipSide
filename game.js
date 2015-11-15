@@ -17,7 +17,7 @@ Promise.all(promises).then(function(imageArrays){
   cardImages = cardImages.concat(cardImages);
   cardImages = main.shuffleArrayElements(cardImages);
   main.insertCards(numCards, cardImages);
-  main.showAllCardsThenHide('.card', 'flip', delay);
+  main.showAllCardsThenHide('.card', 'flip', delay, numCards);
 });
 
 // TODO: get n/2 unique images - done - fixed
