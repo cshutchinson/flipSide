@@ -2,7 +2,7 @@ module.exports = {
   createCard: function(selector, image, num){
     $(selector).append('<div class="container"><div class="card"><div\
      class="face front"><h1>'+num+'</h1></div><div class="face back"><img\
-     src="' + image + '"</div></div></div>');
+     id="'+ num + '" src="' + image + '"</div></div></div>');
   },
 
   insertCards: function(count, imageArray){
@@ -75,6 +75,7 @@ module.exports = {
       }, delay*i);
     });
     // now hide them in reverse order
+    // have to delay this function until the previous code is complete
     setTimeout(function() {
       $($(target).get().reverse()).each(function(i) {
         var $card = $(this);
@@ -83,7 +84,6 @@ module.exports = {
         }, delay*i);
       });
     }, delay*numCards)
-
   }
 
 };

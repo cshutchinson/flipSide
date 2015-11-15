@@ -55,6 +55,10 @@
 .flip {
   transform: rotateY(180deg);
 }
+.matched {
+  transform: rotateY(180deg);
+  border: 2px solid green;
+}
 .face {
   backface-visibility: hidden;
 }
