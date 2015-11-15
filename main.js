@@ -1,13 +1,13 @@
 module.exports = {
-  createCard: function(selector, image){
+  createCard: function(selector, image, num){
     $(selector).append('<div class="container"><div class="card"><div\
-     class="face front">Front</div><div class="face back"><img src="' + image +
-     '"</div></div></div>');
+     class="face front"><h1>'+num+'</h1></div><div class="face back"><img\
+     src="' + image + '"</div></div></div>');
   },
 
   insertCards: function(count, imageArray){
     for (var i=0; i<count; i=i+1){
-      this.createCard($('.main'), imageArray[i]);
+      this.createCard($('.main'), imageArray[i], i);
     }
     return true;
   },
