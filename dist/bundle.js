@@ -48,9 +48,9 @@
 
 	var cardImages = [];
 	var promises = [];
-	var numCards = 4;
+	var numCards = 10;
 
-	for (var i=0; i<numCards/2; i++){
+	for (var i=0; i<numCards; i++){
 	  promises.push(main.retrieveImage());
 	}
 
@@ -58,7 +58,9 @@
 	  imageArrays.map(function(elem){
 	    cardImages.push(main.handleImage(elem));
 	  });
-	  console.log(cardImages);
+	  main.elmiminateDuplicateArrayElements(cardImages);
+	  cardImages = cardImages.concat(cardImages);
+	  
 	});
 
 	// TODO: get n/2 unique images
@@ -129,10 +131,21 @@
 	      });
 	  },
 
-	  elmiminateDuplicateArrayElements: function(array){
-	    array.filter(function(elem, pos, self){
-	      return self.indexOf(elem) === pos;
+	  elmiminateDuplicateArrayElements: function(arr){
+	    var result = [];
+	    arr.map(function(elem){
+	      if (result.indexOf(elem)===-1) result.push(elem);
 	    });
+	    return result;
+	  },
+
+	  shuffleArrayElements: function(array){
+	    for (var i = array.length - 1; i > 0; i--) {
+	      var j = Math.floor(Math.random() * (i + 1));
+	      var temp = array[i];
+	      array[i] = array[j];
+	      array[j] = temp;
+	    }
 	    return array;
 	  }
 	};

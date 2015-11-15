@@ -16,5 +16,22 @@ describe('elmiminateDuplicateArrayElements', function(){
     expect(code.elmiminateDuplicateArrayElements([1, 2, 2, 3]))
     .to.deep.equal([1, 2, 3]);
   });
+  it('should return a unique array when duplicates present', function(){
+    expect(code.elmiminateDuplicateArrayElements([1, 1, 3, 4, 1, 2, 2, 3]))
+    .to.deep.equal([1, 3, 4, 2]);
+  });
+});
+
+describe('shuffleArrayElements', function(){
+  console.log(code.shuffleArrayElements([1, 2, 3, 4]));
+  it('should reorder an array', function(){
+    expect(code.shuffleArrayElements([1, 2, 3, 4]))
+    .to.not.deep.equal([1, 2, 3, 4]);
+  });
+  console.log(code.shuffleArrayElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+  it('should reorder an array', function(){
+    expect(code.shuffleArrayElements([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]))
+    .to.not.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+  });
 
 });

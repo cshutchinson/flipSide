@@ -2,7 +2,7 @@ var main = require('./main.js');
 
 var cardImages = [];
 var promises = [];
-var numCards = 4;
+var numCards = 16;
 
 for (var i=0; i<numCards/2; i++){
   promises.push(main.retrieveImage());
@@ -12,7 +12,9 @@ Promise.all(promises).then(function(imageArrays){
   imageArrays.map(function(elem){
     cardImages.push(main.handleImage(elem));
   });
-  console.log(cardImages);
+  main.elmiminateDuplicateArrayElements(cardImages);
+  cardImages = cardImages.concat(cardImages);
+  cardImages = shuffleArrayElements(cardImages);
 });
 
 // TODO: get n/2 unique images
