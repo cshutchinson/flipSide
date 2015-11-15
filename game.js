@@ -14,7 +14,9 @@ Promise.all(promises).then(function(imageArrays){
   });
   main.elmiminateDuplicateArrayElements(cardImages);
   cardImages = cardImages.concat(cardImages);
-  cardImages = shuffleArrayElements(cardImages);
+  cardImages = main.shuffleArrayElements(cardImages);
+  main.insertCards(numCards, cardImages);
+  main.addClickEventListener('.card', 'flip');
 });
 
 // TODO: get n/2 unique images

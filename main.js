@@ -1,18 +1,15 @@
 module.exports = {
-  createCard: function(selector){
+  createCard: function(selector, image){
     $(selector).append('<div class="container"><div class="card"><div\
-     class="face front">Front</div><div class="face back"></div></div></div>');
+     class="face front">Front</div><div class="face back"><img src="' + image +
+     '"</div></div></div>');
   },
 
-  insertCards: function(count){
+  insertCards: function(count, imageArray){
     for (var i=0; i<count; i=i+1){
-      createCard($('.main'));
+      this.createCard($('.main'), imageArray[i]);
     }
-    return $('.main');
-  },
-
-  addImageToCard: function(data){
-    $('.back:last').append($('<img>').attr('src', data));
+    return true;
   },
 
   retrieveImage: function(){
