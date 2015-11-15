@@ -44,6 +44,7 @@ module.exports = {
       $(target).click(function(){
         $(this).toggleClass(cssClass);
       });
+      return true;
   },
 
   elmiminateDuplicateArrayElements: function(arr){
@@ -62,5 +63,13 @@ module.exports = {
       array[j] = temp;
     }
     return array;
+  },
+
+  showAllCards: function(target, cssClass){
+    $(target).addClass(cssClass);
+  },
+
+  hideAllCards: function(target, cssClass){
+    $(target).removeClass(cssClass);
   }
 };

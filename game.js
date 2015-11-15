@@ -16,14 +16,16 @@ Promise.all(promises).then(function(imageArrays){
   cardImages = cardImages.concat(cardImages);
   cardImages = main.shuffleArrayElements(cardImages);
   main.insertCards(numCards, cardImages);
+  main.showAllCards('.card', 'flip');
   main.addClickEventListener('.card', 'flip');
+
 });
 
-// TODO: get n/2 unique images
-// TODO: concat the array with copy of itself
-// TODO: shuffle the array for randomness
-// TODO: create cards with image on flip slide
-// TODO: add click events to each card
+// TODO: get n/2 unique images - done
+// TODO: concat the array with copy of itself - done
+// TODO: shuffle the array for randomness - done
+// TODO: create cards with image on flip slide - done
+// TODO: add click events to each card - done
 // TODO: show all images to begin the game
 // TODO: hide all images to start the game
 // TODO: when two images are revealed check to see if they are equal
