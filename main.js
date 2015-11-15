@@ -48,11 +48,10 @@ module.exports = {
   },
 
   elmiminateDuplicateArrayElements: function(arr){
-    var result = [];
-    arr.map(function(elem){
-      if (result.indexOf(elem)===-1) result.push(elem);
+    var uniqueArray = arr.filter(function(elem, pos) {
+      return arr.indexOf(elem) === pos;
     });
-    return result;
+    return uniqueArray;
   },
 
   shuffleArrayElements: function(array){
@@ -65,11 +64,16 @@ module.exports = {
     return array;
   },
 
-  showAllCards: function(target, cssClass){
-    $(target).addClass(cssClass);
-  },
-
-  hideAllCards: function(target, cssClass){
-    $(target).removeClass(cssClass);
+  showAllCardsThenHide: function(target, cssClass, delay){
+    $(target).each(function(i) {
+      var $card = $(this);
+      setTimeout(function() {
+        $card.addClass(cssClass);
+        $card.click(function(){
+          $card.toggleClass(cssClass);
+        });
+      }, delay*i);
+    });
   }
+
 };

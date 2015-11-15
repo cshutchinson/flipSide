@@ -3,6 +3,7 @@ var main = require('./main.js');
 var cardImages = [];
 var promises = [];
 var numCards = 16;
+var delay = 500;
 
 for (var i=0; i<numCards/2; i++){
   promises.push(main.retrieveImage());
@@ -16,12 +17,10 @@ Promise.all(promises).then(function(imageArrays){
   cardImages = cardImages.concat(cardImages);
   cardImages = main.shuffleArrayElements(cardImages);
   main.insertCards(numCards, cardImages);
-  main.showAllCards('.card', 'flip');
-  main.addClickEventListener('.card', 'flip');
-
+  main.showAllCardsThenHide('.card', 'flip', delay);
 });
 
-// TODO: get n/2 unique images - done
+// TODO: get n/2 unique images - done - fixed
 // TODO: concat the array with copy of itself - done
 // TODO: shuffle the array for randomness - done
 // TODO: create cards with image on flip slide - done
