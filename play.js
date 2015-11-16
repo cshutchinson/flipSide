@@ -58,6 +58,8 @@ function calculateScore(score, correct){
     if (score.score < 0) score.score = 0;
   }
   console.log(score.score);
+  $('.scoreNumeric>h2').replaceWith('<h2>' + score.score.toFixed(0) + '</h2>');
+  // $( "div.second" ).replaceWith( "<h2>New heading</h2>" );
   score.endTime = 0;
   score.startTime = 0;
   return score;
