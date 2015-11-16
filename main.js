@@ -69,6 +69,7 @@ module.exports = {
   },
 
   showAllCardsThenHide: function(target, cssClass, delay, numCards, cb){
+    // reveal card images one by one to give preview opportunity
     $(target).each(function(i) {
       var $card = $(this);
       setTimeout(function() {

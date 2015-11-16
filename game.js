@@ -7,6 +7,7 @@ var numCards = 4;
 var delay = 500;
 var openingAnimationComplete = false;
 
+
 for (var i=0; i<numCards/2; i++){
   promises.push(main.retrieveImage());
 }
@@ -33,5 +34,5 @@ Promise.all(promises).then(function(imageArrays){
 // TODO: hide all images to start the game - done
 // TODO: when two images are revealed check to see if they are equal - done
 // TODO: hide pair of images if they don't match - done
-// TODO: increment score as needed 
+// TODO: increment score as needed
 // TODO: end game when all images are revealed
