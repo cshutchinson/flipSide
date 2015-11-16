@@ -32,6 +32,6 @@ Promise.all(promises).then(function(imageArrays){
 // TODO: show all images to begin the game - done
 // TODO: hide all images to start the game - done
 // TODO: when two images are revealed check to see if they are equal - done
-// TODO: hide pair of images if they don't match
-// TODO: increment score as needed
+// TODO: hide pair of images if they don't match - done
+// TODO: increment score as needed 
 // TODO: end game when all images are revealed
