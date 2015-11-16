@@ -8,7 +8,8 @@ function gameLoop(){
 }
 
 function checkForMatch(){
-  var $flippedCards = $('div.card.flip>div.face.back>img');
+  var $flippedCards = $('div.card.flip>div.face.back>img')
+    .not($('div.card.matched>div.face.back>img'));
   if ($flippedCards.length === 2){
     main.removeClickEventListener($flippedCards);
     //check to see that the src of the images are equal
