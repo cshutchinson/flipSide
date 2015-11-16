@@ -1,7 +1,7 @@
 module.exports = {
   checkForMatch(){
     var flippedCards = $('div.card.flip>div.face.back>img');
-    if (flippedCards.length === 2 ){
+    if (flippedCards.length === 2 && checkAnimationState('.card', 'flip')){
       // TODO: remove click event from all cards
 
       //check to see that the src of the images are equal

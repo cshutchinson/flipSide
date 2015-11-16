@@ -5,6 +5,7 @@ var cardImages = [];
 var promises = [];
 var numCards = 2;
 var delay = 500;
+var openingAnimationComplete = false;
 
 for (var i=0; i<numCards/2; i++){
   promises.push(main.retrieveImage());
@@ -21,10 +22,10 @@ Promise.all(promises).then(function(imageArrays){
   main.showAllCardsThenHide('.card', 'flip', delay, numCards);
 });
 
-setInterval(onTimerTick, 33); // 33 milliseconds = ~ 30 frames per sec
+setInterval(onTimerTick, 200); // 33 milliseconds = ~ 30 frames per sec
 
 function onTimerTick() {
-  setInterval(play.checkForMatch(), 2500);
+  setInterval(play.checkForMatch(), 500);
 }
 
 

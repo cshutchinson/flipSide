@@ -84,6 +84,10 @@ module.exports = {
         }, delay*i);
       });
     }, delay*numCards)
+  },
+
+  checkAnimationState(target){
+    return $(target).hasClass(cssClass);
   }
 
 };
