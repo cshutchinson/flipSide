@@ -35,22 +35,13 @@ function checkForMatch(){
       $flippedCards.parent().parent().addClass('matched');
       $flippedCards.parent().parent().removeClass('flip');
       // TODO: display message of successful match
-      // TODO: adjust score
-      // console.log('increased score');
       correctMatchScore();
-      // console.log(score);
     } else {
       $flippedCards.parent().parent().removeClass('flip');
       incorrectMatchScore();
-      // console.log(score);
       // TODO: display message that cards were not match obviously
-      // TODO: adjust score down
-      // console.log('descreased score, no match, try again ?');
     }
-
     // TODO: if all cards match end game
-    // TODO: else add click event to cards without .matched
-
     // TODO: end game
     // TODO: save email and high score to local storage
   }
@@ -64,6 +55,7 @@ function calculateScore(score, correct){
   } else {
     turnScore *= score.consecutiveWrong;
     score.score -= turnScore;
+    if (score.score < 0) score.score = 0;
   }
   console.log(score.score);
   score.endTime = 0;
