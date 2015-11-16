@@ -40,11 +40,15 @@ module.exports = {
   },
 
   addClickEventListener: function(target, cssClass){
-      // usage addClickEventListener('.card', 'flip')
-      $(target).click(function(){
-        $(this).toggleClass(cssClass);
-      });
-      return true;
+    // usage addClickEventListener('.card', 'flip')
+    $(target).click(function(){
+      $(this).toggleClass(cssClass);
+    });
+    return true;
+  },
+
+  removeClickEventListener: function(target){
+    $(target).unbind('click');
   },
 
   elmiminateDuplicateArrayElements: function(arr){
@@ -64,7 +68,7 @@ module.exports = {
     return array;
   },
 
-  showAllCardsThenHide: function(target, cssClass, delay, numCards){
+  showAllCardsThenHide: function(target, cssClass, delay, numCards, cb){
     $(target).each(function(i) {
       var $card = $(this);
       setTimeout(function() {
@@ -84,10 +88,9 @@ module.exports = {
         }, delay*i);
       });
     }, delay*numCards)
-  },
-
-  checkAnimationState(target){
-    return $(target).hasClass(cssClass);
+    setTimeout(cb, delay*numCards*2);
   }
+
+
 
 };

@@ -21,6 +21,7 @@ gulp.task('webpack', function() {
     output: {
       filename: 'bundle.js',
     },
+    devtool: "#source-map"
   }))
   .pipe(gulp.dest('./dist/'));
 });
