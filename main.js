@@ -74,9 +74,9 @@ module.exports = {
       var $card = $(this);
       setTimeout(function() {
         $card.addClass(cssClass);
-        $card.click(function(){
-          $card.toggleClass(cssClass);
-        });
+        // $card.click(function(){
+        //   $card.toggleClass(cssClass);
+        // });
       }, delay*i);
     });
     // now hide them in reverse order
