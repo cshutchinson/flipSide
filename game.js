@@ -25,7 +25,7 @@ Promise.all(promises).then(function(imageArrays){
 
 
 
-// TODO: get n/2 unique images - done - fixed
+// TODO: get n/2 unique images - done - fixed - done
 // TODO: concat the array with copy of itself - done
 // TODO: shuffle the array for randomness - done
 // TODO: create cards with image on flip slide - done
@@ -35,6 +35,6 @@ Promise.all(promises).then(function(imageArrays){
 // TODO: when two images are revealed check to see if they are equal - done
 // TODO: hide pair of images if they don't match - done
 // TODO: increment score as needed - done
-// TODO: display score on gameboard
-// TODO: message api to display message on gameboard
+// TODO: display score on gameboard - done
+// TODO: message api to display message on gameboard - done
 // TODO: end game when all images are revealed

@@ -44,7 +44,6 @@ function checkForMatch(){
       $('.turnMessage>h2').replaceWith('<h2>' + matchMessage(false) + '</h2>');
     }
     // TODO: if all cards match end game
-    // TODO: end game
     // TODO: save email and high score to local storage
   }
 }
