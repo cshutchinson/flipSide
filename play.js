@@ -11,13 +11,13 @@ var score = {
 
 function gameLoop(){
   $('.turnMessage>h2').replaceWith('<h2>' + 'Go! Time counts!' + '</h2>');
-  setInterval(onTimerTick, 600); // 33 milliseconds = ~ 30 frames per sec
+  var mainTimer = setInterval(onTimerTick, 600); // 33 milliseconds = ~ 30 frames per sec
   function onTimerTick() {
-    checkForMatch();
+    checkForMatch(mainTimer);
   }
 }
 
-function checkForMatch(){
+function checkForMatch(timer){
 
   var $flippedCards = $('div.card.flip>div.face.back>img')
     .not($('div.card.matched>div.face.back>img'));
@@ -45,10 +45,16 @@ function checkForMatch(){
           '</h2>');
         }, 500);
       incorrectMatchScore();
-
     }
     // TODO: if all cards match end game
-    // TODO: save email and high score to local storage
+      // TODO: try again or return to main page
+      // TODO: save email and high score to local storage
+  }
+  var $matchedCards = $('div.card.matched>div.face.back>img');
+  if ($matchedCards.length === $('div.card').length){
+    window.clearInterval(timer);
+    console.log('game complete');
+    
   }
 }
 
