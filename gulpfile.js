@@ -4,7 +4,7 @@ var mocha = require('gulp-mocha');
 
 gulp.task('default', ['webpack', 'css', 'test'], function() {
   return gulp
-    .src('*.html')
+    .src('**/*.html')
     .pipe(gulp.dest('./dist'));
 });
 
@@ -16,14 +16,17 @@ gulp.task('css', function() {
 
 gulp.task('webpack', function() {
   return gulp
-  .src('game.js')
-  .pipe(webpack({
-    output: {
-      filename: 'bundle.js',
-    },
-    devtool: "#source-map"
-  }))
-  .pipe(gulp.dest('./dist/'));
+    .src('game.js')
+    .pipe(webpack({
+      entry: {
+        intro: './validation.js',
+        index: './game.js',
+      },
+      output: {
+        filename: '[name].bundle.js',
+      },
+    }))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('test', function () {

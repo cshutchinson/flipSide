@@ -91,7 +91,4 @@ module.exports = {
     }, delay*numCards)
     setTimeout(cb, delay*numCards*2);
   }
-
-
-
 };
