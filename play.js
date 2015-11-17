@@ -12,6 +12,9 @@ var score = {
 function gameLoop(){
   main.addClickEventListener('.card', 'flip');
   $('.turnMessage>h2').replaceWith('<h2>' + 'Go! Time counts!' + '</h2>');
+  if (score.startTime === 0) {
+    score.startTime = Date.now();
+  };
   var mainTimer = setInterval(onTimerTick, 600); // 33 milliseconds = ~ 30 frames per sec
   function onTimerTick() {
     checkForMatch(mainTimer);
