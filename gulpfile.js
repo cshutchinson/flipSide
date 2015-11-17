@@ -19,8 +19,8 @@ gulp.task('webpack', function() {
     .src('game.js')
     .pipe(webpack({
       entry: {
-        intro: './validation.js',
-        index: './game.js',
+        index: './validation.js',
+        flipside: './game.js',
       },
       output: {
         filename: '[name].bundle.js',
