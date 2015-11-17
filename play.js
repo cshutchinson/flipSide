@@ -79,14 +79,14 @@ function correctMatchScore() {
 function matchMessage(match){
   matchMessages = ['You are rocking it!', 'Great match.', 'Speed demon!',
     'Your memory is astonishing!', 'Are you a genius?', 'Your parents must be\
-    proud!', 'Way to go!', 'I admire your finesse!', 'Your performance is impres\
-    sive!', 'Wow, a raise is in your future!', 'Your kids will be super \
+    proud!', 'Way to go!', 'I admire your finesse!', 'Your performance is\
+    impressive!', 'Wow, a raise is in your future!', 'Your kids will be super \
     intelligent!', 'Can you do that again?', 'Watch out your boss is coming!'];
   failMessages = ['You can do better than this!', 'Sad...try again!', 'Keep \
     trying!', 'Is this the best you can do?', 'Do you need another drink?',
-    'Did you drop an edible last night?', 'Good thing you found this game!',
-    'This is the worst performance ever!', 'Did you repeat kindergarten?',
-    'This exercise can really help you.'];
+    'This game can really help you.', 'Good thing you found this game!',
+    'This is the worst performance ever!', 'Did you repeat a grade?']
+    ;
   if (match){
     return (matchMessages[Math.floor(Math.random()*matchMessages.length)]);
   } else {
