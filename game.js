@@ -37,4 +37,4 @@ Promise.all(promises).then(function(imageArrays){
 // TODO: increment score as needed - done
 // TODO: display score on gameboard - done
 // TODO: message api to display message on gameboard - done
-// TODO: end game when all images are revealed
+// TODO: end game when all images are revealed - done

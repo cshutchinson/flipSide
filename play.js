@@ -2,7 +2,7 @@ var main = require('./main.js');
 
 var score = {
   score: 0,
-  multiplier: 100,
+  multiplier: 1000,
   consecutiveCorrect: 0,
   consecutiveWrong: 0,
   startTime: 0,
@@ -10,26 +10,30 @@ var score = {
 };
 
 function gameLoop(){
+  // animation is complete now - make it possible to reveal a card
   main.addClickEventListener('.card', 'flip');
   $('.turnMessage>h2').replaceWith('<h2>' + 'Go! Time counts!' + '</h2>');
   if (score.startTime === 0) {
     score.startTime = Date.now();
   };
-  var mainTimer = setInterval(onTimerTick, 600); // 33 milliseconds = ~ 30 frames per sec
+  var mainTimer = setInterval(onTimerTick, 600);
   function onTimerTick() {
     checkForMatch(mainTimer);
   }
 }
 
 function checkForMatch(timer){
+  // this function handles game state managment
 
   var $flippedCards = $('div.card.flip>div.face.back>img')
     .not($('div.card.matched>div.face.back>img'));
+  // user flipped a card
   if ($flippedCards.length === 1){
     if (score.startTime===0) {
       score.startTime = Date.now();
     }
   }
+  // user flipped over second card - match?
   if ($flippedCards.length === 2){
     if (score.endTime===0) {
       score.endTime = Date.now();
@@ -50,15 +54,12 @@ function checkForMatch(timer){
         }, 500);
       incorrectMatchScore();
     }
-    // TODO: if all cards match end game
-      // TODO: try again or return to main page
-      // TODO: save email and high score to local storage
   }
+  // check to see if all cards are matched and end game
   var $matchedCards = $('div.card.matched>div.face.back>img');
   if ($matchedCards.length === $('div.card').length){
     window.clearInterval(timer);
-    console.log('game complete');
-
+    gameComplete();
   }
 }
 
@@ -105,6 +106,18 @@ function matchMessage(match){
     return (matchMessages[Math.floor(Math.random()*matchMessages.length)]);
   } else {
     return (failMessages[Math.floor(Math.random()*failMessages.length)]);
+  }
+}
+
+function gameComplete(){
+  // display game complete message
+  $('.turnMessage>h2').replaceWith('<h2>' + 'Fantastic! Game complete.'+
+    '</h2>');
+  // save email and score if highest to localstorage
+  if (+localStorage.getItem('highScore')< score.score){
+    localStorage.setItem('highScore', score.score.toFixed(0))
+    $('.turnMessage>h2').replaceWith('<h2>' + 'Fantastic! Game complete.'+
+    ' New high score saved!' + '</h2>');
   }
 }
 
