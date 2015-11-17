@@ -16,11 +16,11 @@ gulp.task('css', function() {
 
 gulp.task('webpack', function() {
   return gulp
-    .src('game.js')
+    .src('main.js')
     .pipe(webpack({
       entry: {
         index: './validation.js',
-        flipside: './game.js',
+        flipside: './main.js',
       },
       output: {
         filename: '[name].bundle.js',

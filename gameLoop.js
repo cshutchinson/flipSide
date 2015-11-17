@@ -1,4 +1,4 @@
-var main = require('./main.js');
+var hf = require('./helperFunctions.js');
 
 var score = {
   score: 0,
@@ -11,7 +11,7 @@ var score = {
 
 function gameLoop(){
   // animation is complete now - make it possible to reveal a card
-  main.addClickEventListener('.card', 'flip');
+  hf.addClickEventListener('.card', 'flip');
   $('.turnMessage>h2').replaceWith('<h2>' + 'Go! Time counts!' + '</h2>');
   if (score.startTime === 0) {
     score.startTime = Date.now();
@@ -38,7 +38,7 @@ function checkForMatch(timer){
     if (score.endTime===0) {
       score.endTime = Date.now();
     }
-    main.removeClickEventListener($flippedCards);
+    hf.removeClickEventListener($flippedCards);
     //check to see that the src of the images are equal
     if ($flippedCards[0].src === $flippedCards[1].src){
       $flippedCards.parent().parent().addClass('matched');
