@@ -7,11 +7,11 @@ var score = {
   consecutiveWrong: 0,
   startTime: 0,
   endTime: 0
-}
+};
 
 function gameLoop(){
   $('.turnMessage>h2').replaceWith('<h2>' + 'Go! Time counts!' + '</h2>');
-  setInterval(onTimerTick, 500); // 33 milliseconds = ~ 30 frames per sec
+  setInterval(onTimerTick, 600); // 33 milliseconds = ~ 30 frames per sec
   function onTimerTick() {
     checkForMatch();
   }
@@ -39,9 +39,13 @@ function checkForMatch(){
 
       correctMatchScore();
     } else {
-      $flippedCards.parent().parent().removeClass('flip');
+      setTimeout(function(){
+        $flippedCards.parent().parent().removeClass('flip');
+        $('.turnMessage>h2').replaceWith('<h2>' + matchMessage(false) +
+          '</h2>');
+        }, 500);
       incorrectMatchScore();
-      $('.turnMessage>h2').replaceWith('<h2>' + matchMessage(false) + '</h2>');
+
     }
     // TODO: if all cards match end game
     // TODO: save email and high score to local storage
