@@ -16,7 +16,7 @@ module.exports = {
     return new Promise(function(succeed, fail){
       var req = new XMLHttpRequest();
       req.responseType = 'arraybuffer';
-      req.open('GET', 'http://lorempixel.com/70/70/', true);
+      req.open('GET', 'http://lorempixel.com/150/150/', true);
       req.onload = function(){
         if (req.status < 400) {
           succeed(req.response);
