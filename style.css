@@ -4,7 +4,7 @@ body {
   margin: 30px;
 }
 
-h1 {
+h1.introh1 {
   font-family: 'Black Ops One', cursive;
   margin-bottom: 5px;
   padding bottom: 5px;
@@ -21,7 +21,7 @@ h1 {
   font-family: 'Nothing You Could Do', cursive;
 }
 
-h2 {
+h2.introh2 {
   font-family: 'Gloria Hallelujah', cursive;
   margin-top: 0px;
   padding-top: 0px;
