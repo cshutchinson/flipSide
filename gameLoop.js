@@ -12,7 +12,7 @@ var score = {
 function gameLoop(){
   // animation is complete now - make it possible to reveal a card
   hf.addClickEventListener('.card', 'flip');
-  $('.turnMessage>h2').replaceWith('<h2>' + 'Go! Time counts!' + '</h2>');
+  $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + 'Go! Time counts!' + '</h2>');
   if (score.startTime === 0) {
     score.startTime = Date.now();
   };
@@ -43,13 +43,13 @@ function checkForMatch(timer){
     if ($flippedCards[0].src === $flippedCards[1].src){
       $flippedCards.parent().parent().addClass('matched');
       $flippedCards.parent().parent().removeClass('flip');
-      $('.turnMessage>h2').replaceWith('<h2>' + matchMessage(true) + '</h2>');
+      $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + matchMessage(true) + '</h2>');
 
       correctMatchScore();
     } else {
       setTimeout(function(){
         $flippedCards.parent().parent().removeClass('flip');
-        $('.turnMessage>h2').replaceWith('<h2>' + matchMessage(false) +
+        $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + matchMessage(false) +
           '</h2>');
         }, 500);
       incorrectMatchScore();
@@ -73,7 +73,7 @@ function calculateScore(score, correct){
     score.score -= turnScore;
     if (score.score < 0) score.score = 0;
   }
-  $('.scoreNumeric>h2').replaceWith('<h2>' + score.score.toFixed(0) + '</h2>');
+  $('.scoreNumeric>h2').replaceWith('<h2 class="gameplay">' + score.score.toFixed(0) + '</h2>');
   score.endTime = 0;
   score.startTime = 0;
   return score;
@@ -111,12 +111,12 @@ function matchMessage(match){
 
 function gameComplete(){
   // display game complete message
-  $('.turnMessage>h2').replaceWith('<h2>' + 'Fantastic! Game complete.'+
+  $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + 'Fantastic! Game complete.'+
     '</h2>');
   // save email and score if highest to localstorage
   if (+localStorage.getItem('highScore')< score.score){
     localStorage.setItem('highScore', score.score.toFixed(0))
-    $('.turnMessage>h2').replaceWith('<h2>' + 'Fantastic! Game complete.'+
+    $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + 'Fantastic! Game complete.'+
     ' New high score saved!' + '</h2>');
   }
 }

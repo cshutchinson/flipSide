@@ -1,4 +1,45 @@
+body {
+  width: 100%;
+  height: 100%;
 
+}
+
+h1 {
+  font-family: 'Black Ops One', cursive;
+  margin-bottom: 5px;
+  padding bottom: 5px;
+  -webkit-margin-after: 0px;
+}
+
+.gameplay {
+  font-family: 'Squada One', cursive;
+}
+
+.turnMessage {
+  font-family: 'Nothing You Could Do', cursive;
+}
+
+h2 {
+  font-family: 'Gloria Hallelujah', cursive;
+  margin-top: 0px;
+  padding-top: 0px;
+  -webkit-margin-before: 0px;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: contain;
+  background-image: url('flipSide.png');
+}
+
+.signup {
+ margin-left: 300px;
+ width: 400px;
+ margin-top: 50px;
+}
 
 .main {
   background:rgba(0,0,240, .5);
