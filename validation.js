@@ -2,7 +2,9 @@ var form  = document.getElementsByTagName('form')[0];
 var email = document.getElementById('mail');
 var error = document.querySelector('.error');
 
-email.defaultValue = localStorage.getItem('email');
+if (localStorage.getItem('email')!== null){
+  email.defaultValue = localStorage.getItem('email');
+}
 
 email.addEventListener("keyup", function (event) {
   // Each time the user types something, we check if the
