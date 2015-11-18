@@ -4,7 +4,7 @@ var mocha = require('gulp-mocha');
 
 gulp.task('default', ['webpack', 'css', 'test'], function() {
   return gulp
-    .src('**/*.html')
+    .src('./*.html')
     .pipe(gulp.dest('./dist'));
 });
 
