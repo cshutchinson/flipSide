@@ -8,26 +8,24 @@
     <link rel="stylesheet" href="style.css" charset="utf-8">
   </head>
   <body>
-    <div class="score">
-      <div class="scoreText">
-        <h1 class="gameplay">Score</h1>
-      </div>
-      <div class="scoreNumeric">
-        <h2 class="gameplay">0</h2>
-      </div>
-      <div class="turnMessage">
-        <h2 class="turnMessage">Ready?</h2>
-      </div>
-    </div>
-    <div class="restart-button">
-      <button type="submit" onClick="window.location.reload(true)">Restart</button>
-    </div>
-    <form action="index.html" method="get">
-      <div class="quit-button">
-        <button type="submit" >Quit</button>
-      </div>
-    </form>
     <div class="main">
+      <div class="game-status">
+        <h1 class="gameplay game-status">Score:</h1>
+        <h2 class="scoreNumeric game-status">0</h2>
+        <div class="turnMessage">
+          <h2 class="turnMessage">Ready?</h2>
+        </div>
+      </div>
+      <div class="control-buttons">
+        <div class="restart-button">
+          <button type="submit" onClick="window.location.reload(true)">Restart</button>
+        </div>
+        <form class="quit-form" action="index.html" method="get">
+          <div class="quit-button">
+            <button type="submit" >Quit</button>
+          </div>
+        </form>
+      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="flipside.bundle.js" type="text/javascript"></script>

@@ -73,7 +73,7 @@ function calculateScore(score, correct){
     score.score -= turnScore;
     if (score.score < 0) score.score = 0;
   }
-  $('.scoreNumeric>h2').replaceWith('<h2 class="gameplay">' + score.score.toFixed(0) + '</h2>');
+  $('.scoreNumeric').replaceWith('<h2 class="scoreNumeric game-status">' + score.score.toFixed(0) + '</h2>');
   score.endTime = 0;
   score.startTime = 0;
   return score;

@@ -13,12 +13,23 @@ h1.introh1 {
   color: red;
 }
 
-.gameplay {
+.game-status {
+  display: inline-block;
+}
+
+.gameplay  {
   font-family: 'Squada One', cursive;
+}
+.scorenumeric  {
+  font-family: 'Squada One', cursive;
+  font-size: 1.6em;
+  padding-left: 20px;
 }
 
 .turnMessage {
   font-family: 'Nothing You Could Do', cursive;
+  margin-top: -15px;
+  padding-top: 10px;
 }
 
 h2.introh2 {
@@ -42,6 +53,10 @@ h2.introh2 {
  margin-left: 300px;
  width: 400px;
  margin-top: 20px;
+}
+
+.restart-button, .quit-form {
+  display: inline-block;
 }
 
 .main {
