@@ -1,7 +1,7 @@
 module.exports = {
   createCard: function(selector, image, num){
-    $(selector).append('<div class="container"><div class="card"><div\
-     class="face front"><h1>'+num+'</h1></div><div class="face back"><img\
+    $(selector).append('<div class="container shadow"><div class="card"><div\
+     class="face front"><p>'+num+'</p></div><div class="face back"><img\
      id="'+ num + '" src="' + image + '"</div></div></div>');
   },
 

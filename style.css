@@ -71,6 +71,12 @@ h2.introh2 {
   margin-right:auto;
 }
 
+.shadow {
+  -moz-box-shadow:    1px 0px 2px 2px #ccc;
+  -webkit-box-shadow: 1px 0px 2px 2px #ccc;
+  box-shadow:         1px 0px 2px 2px #ccc;
+}
+
 .container{
   display: inline-block;
   width: 23%;
@@ -94,6 +100,10 @@ h2.introh2 {
 
 .face.front {
   background:aliceblue;
+  background-image: url(flipSide.gif);
+  background-size: 75px 75px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .face.back {
@@ -102,8 +112,8 @@ h2.introh2 {
   padding: 0px;
   color: white;
   text-align: center;
-  background-color: #111;
-  outline: 1px solid black;
+  /*background-color: #111;*/
+  /*outline: 1px solid black;*/
 }
 
 .container{
