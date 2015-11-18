@@ -82,13 +82,13 @@ module.exports = {
     // now hide them in reverse order
     // have to delay this function until the previous code is complete
     setTimeout(function() {
-      $($(target).get().reverse()).each(function(i) {
-        var $card = $(this);
-        setTimeout(function() {
-          $card.toggleClass(cssClass);
-        }, delay*i);
-      });
+      // $($(target).get().reverse()).each(function(i) {
+        // var $card = $(this);
+      //   setTimeout(function() {
+          $(target).toggleClass(cssClass);
+        // }, delay*i);
+      // });
     }, delay*numCards)
-    setTimeout(cb, delay*numCards*2);
+    setTimeout(cb, delay*numCards*1.1);
   }
 };

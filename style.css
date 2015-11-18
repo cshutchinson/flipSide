@@ -114,10 +114,10 @@ h2.introh2 {
   transition: all .25s linear;
 }
 .flip {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);  //changed 11-18
 }
 .matched {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
   border: 2px solid green;
 }
 .face {
@@ -125,7 +125,7 @@ h2.introh2 {
 }
 
 .face.back {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 form {
