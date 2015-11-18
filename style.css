@@ -59,7 +59,7 @@ h2.introh2 {
 }
 
 .main {
-  background:rgba(0,0,240, .5);
+  background: rgba(0,0,24, .45);
   height: 660px;
   width: 660px;
   padding: 10px;
@@ -145,6 +145,8 @@ button.start {
   text-shadow: 0 -.05em .05em #335166;
   font-size: 125%;
   line-height: 1.5;
+  width: 168%;
+  margin-left: -3px;
 }
 
 input[type=email]{
