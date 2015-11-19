@@ -1,4 +1,17 @@
-# Galvanize Individual Project Proposal
+# FlipSide - A Memory Matching Game
+____
+<a href="http://www.twilightfactor.com/assets/flipSide/index.html">Play Here</a>
+
+## FlipSide Details
+The game begins by revealing twelve cards, each containing a random image. After
+a brief preview, each image is hidden.  The objective is to identify all the
+matching pairs without making a mistake.  
+
+Bonus multipliers are in place to
+reward consecutive correct answers as well as penalize you for incorrect guesses.
+The application will not penalize the player in a method that would result in a negative score.
+
+A player's high score is saved along with the supplied email address as a record of their best performance in localStorage.
 
 ## Project Description
 I will implement a memory game consisting of 2n cards. The cards will be
@@ -22,7 +35,7 @@ the array members.
 
 ## What technologies do you plan to use?
 - HTML (validated)  
-- CSS / Sass  
+- CSS
 - Javascript - ESLint  
 - jQuery / React for DOM manipulation  
 - XHR  
@@ -30,6 +43,8 @@ the array members.
 - Wireframe Layouts  
 - Git branching for features  
 - Gulp for workflow management  
+- WebPack
+- Mocha / Chai for testing
 
 ## Feature list
 - User interface will consist of an array of square cards  
