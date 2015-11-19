@@ -2,6 +2,8 @@
 ____
 <a href="http://www.twilightfactor.com/assets/flipSide/index.html">Play Here</a>
 
+<a href="https://youtu.be/5x90H1f82k4">YouTube Video Demo</a>
+
 ## FlipSide Details
 The game begins by revealing twelve cards, each containing a random image. After
 a brief preview, each image is hidden.  The objective is to identify all the
