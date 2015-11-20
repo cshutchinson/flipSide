@@ -1,8 +1,20 @@
 # FlipSide - A Memory Matching Game
-____
-<a href="http://www.twilightfactor.com/assets/flipSide/index.html">Play Here</a>
+<a href="http://www.twilightfactor.com/assets/flipSide/index.html">Live Demo - Play Here</a>
 
 <a href="https://youtu.be/5x90H1f82k4">YouTube Video Demo</a>
+
+## Install
+- git clone git@github.com:cshutchinson/flipSide.git
+- npm install mocha -g
+- npm install gulp -g
+- npm install webpack -g
+- npm install http-server -g
+- npm install
+
+## Run locally
+- $ gulp (to run tests and build - output is in ./dist)
+- $ http-server (execute in ./dist folder)
+- in Chrome open http://localhost:8080/index.html
 
 ## FlipSide Details
 The game begins by revealing twelve cards, each containing a random image. After

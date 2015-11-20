@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var webpack = require('gulp-webpack');
 var mocha = require('gulp-mocha');
 
-gulp.task('default', ['webpack', 'css', 'test'], function() {
+gulp.task('default', ['webpack', 'css', 'images', 'test'], function() {
   return gulp
     .src('./*.html')
     .pipe(gulp.dest('./dist'));
@@ -13,6 +13,12 @@ gulp.task('css', function() {
     .src('*.css')
     .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('images', function() {
+  return gulp
+    .src(['*.gif', '*.png', '*.ico'])
+    .pipe(gulp.dest('./dist'));
+})
 
 gulp.task('webpack', function() {
   return gulp
