@@ -1,0 +1,5 @@
+1. screen sizing
+2. no way to view high score
+3. messages are lost on gameplay
+4. animation bug / selecting cards
+5. pictures load slow. 
