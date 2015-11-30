@@ -9,24 +9,21 @@ var score = {
   endTime: 0
 };
 
+clickTarget = null;
+
 function gameLoop(){
   // animation is complete now - make it possible to reveal a card
-  hf.addClickEventListener('.card', 'flip');
+  clickTarget = hf.addClickEventListener('.card', 'flip');
   $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + 'Go! Time counts!' + '</h2>');
   if (score.startTime === 0) {
     score.startTime = Date.now();
   };
-  var mainTimer = setInterval(onTimerTick, 600);
-  function onTimerTick() {
-    checkForMatch(mainTimer);
-  }
+  var mainTimer = setInterval(checkForMatch, 50);
 }
 
 function checkForMatch(timer){
   // this function handles game state managment
-
-  var $flippedCards = $('div.card.flip>div.face.back>img')
-    .not($('div.card.matched>div.face.back>img'));
+  var $flippedCards = $('div.card.flip').not($('div.card.matched'));
   // user flipped a card
   if ($flippedCards.length === 1){
     if (score.startTime===0) {
@@ -38,25 +35,20 @@ function checkForMatch(timer){
     if (score.endTime===0) {
       score.endTime = Date.now();
     }
-    hf.removeClickEventListener($flippedCards);
     //check to see that the src of the images are equal
-    if ($flippedCards[0].src === $flippedCards[1].src){
-      $flippedCards.parent().parent().addClass('matched');
-      $flippedCards.parent().parent().removeClass('flip');
-      $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + matchMessage(true) + '</h2>');
-
+    if ($flippedCards.find('img')[0].src === $flippedCards.find('img')[1].src){
+      $flippedCards.addClass('matched');
+      $flippedCards.removeClass('flip');
       correctMatchScore();
     } else {
       setTimeout(function(){
-        $flippedCards.parent().parent().removeClass('flip');
-        $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + matchMessage(false) +
-          '</h2>');
-        }, 500);
+        $flippedCards.removeClass('flip');
+      }, 300);
       incorrectMatchScore();
     }
   }
   // check to see if all cards are matched and end game
-  var $matchedCards = $('div.card.matched>div.face.back>img');
+  var $matchedCards = $('div.card.matched');
   if ($matchedCards.length === $('div.card').length){
     window.clearInterval(timer);
     gameComplete();

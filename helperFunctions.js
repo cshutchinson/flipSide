@@ -42,13 +42,12 @@ module.exports = {
   addClickEventListener: function(target, cssClass){
     // usage addClickEventListener('.card', 'flip')
     $(target).click(function(){
-      $(this).toggleClass(cssClass);
+      $(this).addClass(cssClass);
     });
-    return true;
   },
 
   removeClickEventListener: function(target){
-    $(target).unbind('click');
+    $(target).off('click');
   },
 
   elmiminateDuplicateArrayElements: function(arr){

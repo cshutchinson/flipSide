@@ -4,7 +4,7 @@ var gl = require('./gameLoop.js');
 var cardImages = [];
 var promises = [];
 var numCards = 12;
-var delay = 500;
+var delay = 250;
 var openingAnimationComplete = false;
 
 for (var i=0; i<numCards; i++){
