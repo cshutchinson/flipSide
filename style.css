@@ -22,28 +22,32 @@ h1.introh1 {
 
 .gameplay {
   font-family: 'Squada One', cursive;
+  font-size: 1.4em;
+  color: gold;
   margin-bottom: 0px;
   margin-top: 10px;
 }
 
 .scorenumeric {
   font-family: 'Squada One', cursive;
-  font-size: 1.6em;
-  padding-left: 20px;
+  font-size: 1.2em;
   margin-top: 5px;
 }
 .highscorenumeric {
   font-family: 'Squada One', cursive;
-  font-size: 1.6em;
-  padding-left: 20px;
+  font-size: 1.2em;
   margin-top: 5px;
-
+}
+.control-buttons {
+  padding-left: 15px;
+  margin-top: -15px;
 }
 
 .turnMessage {
   font-family: 'Nothing You Could Do', cursive;
   margin-top: -15px;
   padding-top: 10px;
+  padding-left: 10px;
 }
 
 h2.introh2 {
@@ -89,7 +93,7 @@ p.introp {
 }
 
 .main {
-  background: rgba(0,0,24, .45);
+  background: rgba(0,0,24, .65);
   height: 660px;
   width: 660px;
   padding: 10px;
@@ -156,7 +160,7 @@ p.introp {
 }
 .matched {
   transform: rotateX(180deg);
-  border: 2px solid green;
+  border: 2px dashed gold;
 }
 .face {
   backface-visibility: hidden;
