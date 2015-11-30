@@ -103,12 +103,6 @@ p.introp {
   margin-right:auto;
 }
 
-.shadow {
-  -moz-box-shadow:    1px 0px 2px 2px #ccc;
-  -webkit-box-shadow: 1px 0px 2px 2px #ccc;
-  box-shadow:         1px 0px 2px 2px #ccc;
-}
-
 .container{
   display: inline-block;
   width: 23%;
@@ -132,7 +126,7 @@ p.introp {
 
 .face.front {
   background:aliceblue;
-  background-image: url(flipSide.gif);
+  background-image: url(flipSide.png);
   background-size: 75px 75px;
   background-repeat: no-repeat;
   background-position: center;
@@ -160,7 +154,7 @@ p.introp {
 }
 .matched {
   transform: rotateX(180deg);
-  border: 2px dashed gold;
+  border: 1px solid gold;
 }
 .face {
   backface-visibility: hidden;
