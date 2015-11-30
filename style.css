@@ -13,11 +13,11 @@ h1.introh1 {
 
 .game-highscore {
   display: inline-block;
-  margin: -20px 20px 0px 20px;
+  margin: -10px 20px 0px 20px;
 }
 .game-score {
   display: inline-block;
-  margin: -20px 370px 0px 20px;
+  margin: -10px 450px 0px 20px;
 }
 
 .gameplay {
@@ -40,11 +40,12 @@ h1.introh1 {
 }
 .control-buttons {
   padding-left: 15px;
-  margin-top: -15px;
+  margin-top: -10px;
 }
 
 .turnMessage {
   font-family: 'Nothing You Could Do', cursive;
+  font-size: 1.1em;
   margin-top: -15px;
   padding-top: 10px;
   padding-left: 10px;
