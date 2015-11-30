@@ -13,7 +13,8 @@ mainTimer = null;
 
 function gameLoop(){
   // animation is complete now - make it possible to reveal a card
-  clickTarget = hf.addClickEventListener('.card', 'flip');
+
+  hf.addClickEventListener('.card', 'flip');
   $('.turnMessage>h2').replaceWith('<h2 class="turnMessage">' + 'Go! Time counts!' + '</h2>');
   if (score.startTime === 0) {
     score.startTime = Date.now();
@@ -65,7 +66,7 @@ function calculateScore(score, correct){
     score.score -= turnScore;
     if (score.score < 0) score.score = 0;
   }
-  $('.scoreNumeric').replaceWith('<h2 class="scoreNumeric game-status">' + score.score.toFixed(0) + '</h2>');
+  $('.scoreNumeric').replaceWith('<h2 class="scoreNumeric">' + score.score.toFixed(0) + '</h2>');
   score.endTime = 0;
   score.startTime = 0;
   return score;

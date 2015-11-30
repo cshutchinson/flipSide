@@ -11,17 +11,33 @@ h1.introh1 {
   color: red;
 }
 
-.game-status {
+.game-highscore {
   display: inline-block;
+  margin: -20px 20px 0px 20px;
+}
+.game-score {
+  display: inline-block;
+  margin: -20px 370px 0px 20px;
 }
 
-.gameplay  {
+.gameplay {
   font-family: 'Squada One', cursive;
+  margin-bottom: 0px;
+  margin-top: 10px;
 }
-.scorenumeric  {
+
+.scorenumeric {
   font-family: 'Squada One', cursive;
   font-size: 1.6em;
   padding-left: 20px;
+  margin-top: 5px;
+}
+.highscorenumeric {
+  font-family: 'Squada One', cursive;
+  font-size: 1.6em;
+  padding-left: 20px;
+  margin-top: 5px;
+
 }
 
 .turnMessage {

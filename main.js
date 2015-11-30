@@ -7,6 +7,10 @@ var numCards = 12;
 var delay = 250;
 var openingAnimationComplete = false;
 
+
+$('.highscorenumeric').replaceWith('<h2 class="highscorenumeric">' +
+  (+localStorage.getItem('highScore')).toFixed(0) + '</h2>');
+
 for (var i=0; i<numCards; i++){
   promises.push(hf.retrieveImage());
 }
